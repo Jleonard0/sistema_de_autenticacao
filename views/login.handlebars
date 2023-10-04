@@ -1,17 +1,25 @@
-<main>
+<main class="d-flex flex-column justify-content-center py-5 align-items-center">
     {{#if authenticated}}
+    {{#if temMensagem}}
     <div class="alert alert-primary" role="alert">
-        Você já esta autenticado!
+        {{mensagem}}
     </div>
     {{/if}}
-    <form class="d-flex flex-column justify-content-center py-5 align-items-center">
+    {{else}}
+    {{#if temMensagem}}
+    <div class="alert alert-danger" role="alert">
+        {{mensagem}}
+    </div>
+    {{/if}}
+    {{/if}}
+    <form action="/login" method="post">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" {{#if authenticated}}disabled{{/if}}>
+            <label for="Email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="Email" name="Email" aria-describedby="emailHelp" {{#if authenticated}}disabled{{/if}}>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" {{#if authenticated}}disabled{{/if}}>
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Password" name="Password" {{#if authenticated}}disabled{{/if}}>
         </div>
         <button type="submit" class="btn btn-primary">Autenticar</button>
     </form>

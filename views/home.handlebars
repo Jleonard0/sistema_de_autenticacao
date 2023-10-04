@@ -1,3 +1,14 @@
-<main>
-
+<main class="d-flex flex-column justify-content-center py-5 align-items-center">
+    {{#if authenticated}}
+    {{#if temMensagem}}
+    <div class="alert alert-primary" role="alert">
+        {{mensagem}}
+    </div>
+    {{/if}}
+    <h1>A qui ficara o conteudo principal</h1>
+    {{else}}
+    <div class="alert alert-danger" role="alert">
+        Você não esta autenticado!
+    </div>
+    {{/if}}
 </main>
